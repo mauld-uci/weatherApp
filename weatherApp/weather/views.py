@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import mimetypes
+
 from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
@@ -20,7 +22,7 @@ def index(request):
     # }
     # #return HttpResponse(template.render(context, request))
     # return render(request, 'weather/index.html', context) #shortcut for the commented out code
-
+    #print(mimetypes.guess_type(static('images/right-arrow.svg'))) 
     return render(request, 'weather/index.html')
 
 def detail(request, question_id):

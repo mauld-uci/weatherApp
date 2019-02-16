@@ -2,7 +2,23 @@ html {
   background-color: #6277B1;
 }
 
+<<<<<<< HEAD
 img {
+=======
+body {
+    margin: 0;
+}
+
+object {
+>>>>>>> 266bbf54d43e8536414039b43e93b47962ab9f7c
   width: 100px;
   height: 100px;
+}
+
+#location {
+  position: relative;
+    width: 25%;
+    padding-bottom: 25%;
+    overflow: hidden;
+    background: #4679BD;
 }

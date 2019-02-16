@@ -1,5 +1,5 @@
 ![Atmosphere Logo](/assets/logo.png)   
-Atmosphere is a personalized weather app that learns your climate preference, and predicts how you will feel outside. 
+Atmosphere is a personalized weather app that learns your climate preference, and predicts how you will feel outside.
 
 
 ## What it Does  

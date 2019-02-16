@@ -3,7 +3,7 @@ Atmosphere is a personalized weather app that learns your climate preference, an
 
 
 ## What it Does  
-How it feels outside is a subjective experience. Yet weather forecasts present the data numerically, making it difficult to determine how you might actually feel outside. How someone feels can also be affected by many different variables: wind chill, humidity, and cloud coverage, to name a few.  
+How it feels outside is a subjective experience. Yet weather forecasts present the data numerically, making it difficult to determine how you might actually feel. How someone feels can also be affected by many different variables: wind chill, humidity, and cloud coverage, to name a few.  
 
 Atmosphere seeks to address these issues by learning what climate the user prefers, and offering a "comfort assessment," that predicts how the user might feel outside. By asking a simple question, "How do you feel today?" Atmosphere takes the numbers out of weather.
 

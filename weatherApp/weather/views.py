@@ -83,9 +83,10 @@ def submission(request):
         windSpeed = currentWeather['current_windSpeed'],
         cloudiness = currentWeather['current_summary'],
         time = currentWeather['current_time'],
-        # sunrise = dailyWeather['daily_sunriseTime'],
-        # sunsetTime = dailyWeather['daily_sunsetTime']
+        sunrise = dailyWeather['daily_sunriseTime'],
+        sunsetTime = dailyWeather['daily_sunsetTime']
     )
+
     currentWeatherData.save()
     dataPoint = UserDataPoint()
     dataPoint.feeling = int(request.session['selected_choice'])

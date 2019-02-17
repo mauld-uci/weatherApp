@@ -53,11 +53,12 @@ def index(request):
         blurb += " It will be raining today, so bring an umbrella! "
     if (dailyWeather['daily_precipProbability']):
         blurb += " It will be sunny out today, so bring your shades!"
+        
     if (dailyWeather['daily_apparentTemperatureHigh'] > 90 and dailyWeather['daily_humidity'] >= 0.98):
         blurb += " Feels like a lawless swampland out today, so bring your guns!"
     if (dailyWeather['daily_apparentTemperatureHigh'] > 90 and dailyWeather['daily_windSpeed'] >= 30):
         blurb += " Hot and windy! Be careful Icarus!"
-    if (dailyWeather['daily_apparentTemperatureHigh'] == 69 and dailyWeather['daily_humidity'] == 69):
+    if (dailyWeather['daily_apparentTemperatureHigh'] == 69 and dailyWeather['daily_humidity'] == .69):
         blurb += " Hehe."
 
     return render(request, 'weather/index.html', currentWeather)

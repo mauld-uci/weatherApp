@@ -27,27 +27,31 @@
   <img src="{% static "weather/svgGraphics/CloudwithRain.svg" %}" alt="My image"> 
 -->
 
-    <div class="row">
-      <div class="col-sm-3">
-        <div id="location-box">
+    <div class="row" id="rowOne">
+      <div class="col-sm-3" id="column1">
+        <div id="locationBox">
           <img src="{% static "weather/svgGraphics/LocationLogo.svg" %}" alt="My image">
-          Ex. Irvine CA
+          <span>Ex. Irvine CA</spans>
         </div>
         <div id="statisticalValue">
-          It's going to be
+          <span>It's going to be</span>
+          <!-- This button changes based on input-->
           <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
+          <span>Just right.</span>
         </div>
       </div>
-      <div class="col-sm-3">
-        <div id="location-box">
-          <img src="{% static "weather/svgGraphics/LocationLogo.svg" %}" alt="My image">
-          Ex. Irvine California
-        </div>
-        <div id="statisticalValue">
-        </div>
+      <div class="col-sm-2" id="columnTwo">
+        <!-- Temperature value is based on API -->
+        <div id="temperature"><span> 61&#176;F </span></div>
+        <!-- Weather type image is based on API -->
+        <div id="weatherType"><img src="{% static "weather/svgGraphics/Moon.svg" %}" alt="My image"></div>
+        <!-- Wind speed value is based on API -->
+        <div id="windSpeed"><span>54mph</span></div>
       </div>
-      <div class="col-sm-6"></div>
+      <div class="col-sm-7" id="columnThree">
+        <div id="largeBox"></div>
       </div>
+    </div>
 
   <!-- JavaScript: placed at the end of the document so the pages load faster -->
   		<!-- jQuery library -->
@@ -59,4 +63,5 @@
   		<!-- Latest compiled and minified Bootstrap JavaScript -->
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>

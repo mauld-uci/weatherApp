@@ -8,6 +8,7 @@ How it feels outside is a subjective experience. Yet weather forecasts present t
 Atmosphere seeks to address these issues by learning what climate the user prefers, and offering a "comfort assessment," that predicts how the user might feel outside. By asking a simple question, "How do you feel today?" Atmosphere takes the numbers out of weather.
 
 #### Daily Forecast  
+Checking the daily forecast is a crucial part of many people's morning routines. It often determines what they wear, what they bring, and when they leave home. Atmosphere presents useful, pertinent information about outside climate, to get people out the door sooner.
 
 #### Comfort Ask  
 Atmosphere is a personalized application, and so needs a personal touch. When the user is outside, Atmosphere will ask how they are feeling. Atmosphere remembers the input, and pairs it with various climate factors, including temperature, wind speed, humidity, and cloud coverage. By collecting this data and analyzing trends, Atmosphere learns what kinds of climates the user prefers, and informs them if the coming day will be warm, cold, or exactly how they like.
@@ -16,10 +17,6 @@ There are two types of comfort asks: Check-Ins and Corrections. Check-Ins period
 
 #### What to Wear  
 Atmosphere intelligently suggests outfit options based on its comfort assessment. At a glance, a user can determine whether they should wear shorts or a parka. On sunny days, Atmosphere will remind the user to bring sunglasses and sunscreen. On rainy days, Atmosphere will suggest a raincoat or umbrella. This at-a-glance feature simplifies the morning routine.
-
-#### Vacation Planning  
-
-
 
 ## How it Works  
 

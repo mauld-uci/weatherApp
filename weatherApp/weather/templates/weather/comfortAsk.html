@@ -20,25 +20,26 @@
       <div id="question"><p>How do you feel today?</p><div id="assurance"><p>(Please select one.)</p></div></div>
       <form class="d-flex flex-row" action="{% url 'weather:submission' %}" choice="" method="post">
         {% csrf_token %}
-              <div>
+              <div id="freezing">
               <input type="image" src="{% static "weather/svgGraphics/FreezinglogowithShadow.svg" %}" alt="My image" name="0">
               <p class="Description">Freezing</p>
               </div>
-              <div>
+              <div id="chilly">
               <input type="image" src="{% static "weather/svgGraphics/ChillylogowithShadow.svg" %}" alt="My image" name="1">
               <p class="Description">Chilly</p>
               </div>
-              <div>
+              <div id="justright">
               <input type="image" src="{% static "weather/svgGraphics/JustRightlogowithShadow.svg" %}" alt="My image" name="2">
               <p class="Description">Just Right</p>
               </div>
-              <div>
+              <div id="toasty">
               <input type="image" src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image" name="3">
               <p class="Description">Toasty</p>
               </div>
-              <div>
+              <div id="onfire">
               <input type="image" src="{% static "weather/svgGraphics/OnFirelogowithShadow.svg" %}" alt="My image" name="4">
-                <p class="Description">On Fire</p>
+              <p class="Description">On Fire</p>
+              </div>
               </div>
             </div>
           </form>

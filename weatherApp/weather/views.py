@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 import mimetypes
-import apiCaller
+#import apiCaller
 
 from django.shortcuts import get_object_or_404, render
 
@@ -15,10 +15,8 @@ from django.urls import reverse
 from .models import UserDataPoint, WeatherData
 
 
-
-
 def index(request):
-    currentWeather = apiCaller.get_current_dict()
+    #currentWeather = apiCaller.get_current_dict()
     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
     # #template = loader.get_template('weather/index.html')
     # context = {

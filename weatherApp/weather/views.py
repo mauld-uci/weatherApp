@@ -15,14 +15,21 @@ from django.urls import reverse
 from .models import UserDataPoint, WeatherData
 
 
-def index(request):
-    currentWeather = apiCaller.get_current_dict()
+def index(request, user_voted=False):
 
-    return render(request, 'weather/index.html', currentWeather)
+    context = {
+        'current_weather': apiCaller.get_current_dict(),
+        'user_voted': user_voted,
+    }
+
+    return render(request, 'weather/index.html', context)
+
+def comfortAsk(request):
+    return render(request, 'weather/comfortAsk.html')
 
 def submission(request):
     try:
-        selected_choice = request.POST['choice'])
+        selected_choice = request.POST['choice']
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the ask form.
         return render(request, 'weather/comfortAsk.html', {
@@ -47,7 +54,7 @@ def submission(request):
     # dataPoint.recordedWeather = currentWeatherData
     # dataPoint.save()
 
-    return HttpResponseRedirect(reverse('index', args=(user_voted=True)))
+    return HttpResponseRedirect(reverse('', kwargs={user_voted: True}))
 
 
 

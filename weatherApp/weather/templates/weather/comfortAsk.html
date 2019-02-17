@@ -13,11 +13,19 @@
   <title>WeatherApp</title>
 </head>
 <body>
-  <a href="index.html"><img src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image"></a>
-  <a href="index.html"><img src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image"></a>
-  <a href="index.html"><img src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image"></a>
-  <a href="index.html"><img src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image"></a>
-  <a href="index.html"><img src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image"></a>
+  <div id="selection" class="">
+    <div class="something d-flex flex-row justify-content-center">
+      <div class="heightAdjuster">
+      <form class="d-flex flex-row">
+        <input type="image" src="{% static "weather/svgGraphics/FreezinglogowithShadow.svg" %}" alt="My image" name="choice" value="0">
+        <input type="image" src="{% static "weather/svgGraphics/ChillylogowithShadow.svg" %}" alt="My image" name="choice" value="1">
+        <input type="image" src="{% static "weather/svgGraphics/JustRightlogowithShadow.svg" %}" alt="My image" name="choice" value="2">
+        <input type="image" src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image" name="choice" value="3">
+        <input type="image" src="{% static "weather/svgGraphics/OnFirelogowithShadow.svg" %}" alt="My image" name="choice" value="4">
+      </form>
+    </div>
+    </div>
+  </div>
 
   <!-- JavaScript: placed at the end of the document so the pages load faster -->
   		<!-- jQuery library -->

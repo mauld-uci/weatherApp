@@ -115,7 +115,25 @@ body{
   border-radius: 40px;
   color: white;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 40px;
+}
+
+#largeBox img {
+  width: 20%;
+  height: auto;
+  padding:2.5%;
+}
+
+#largeBox span {
+  padding: %;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+p {
+  padding: 5%;
 }
 
 /* Row Two */
@@ -123,11 +141,12 @@ body{
 #twelvehourForecast {
   position: relative;
   width: 100%;
-  height: 300%;
+  height: 100%;
   overflow: hidden;
   background: #8C99BD;
   border-radius: 40px;
   color: white;
+  margin-top: 0.75%;
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -145,8 +164,65 @@ div.scrollmenu div {
   padding: 14px;
   text-decoration: none;
 }
-div.scrollmenu div:hover {
-  background-color: #777;
+
+.hourtime {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.temp {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#currentTimeplusOne {
+  margin-left: 50px;
+}
+
+#currentTimeplusTwo {
+  margin-left: 50px;
+}
+
+#currentTimeplusThree {
+  margin-left: 50px;
+}
+
+#currentTimeplusFour {
+  margin-left: 50px;
+}
+
+#currentTimeplusFive {
+  margin-left: 50px;
+}
+
+#currentTimeplusSix {
+  margin-left: 50px;
+}
+
+#currentTimeplusSeven {
+  margin-left: 50px;
+}
+
+#currentTimeplusEight {
+  margin-left: 50px;
+}
+
+#currentTimeplusNine {
+  margin-left: 50px;
+}
+
+#currentTimeplusTen {
+  margin-left: 50px;
+}
+
+#currentTimeplusEleven {
+  margin-left: 50px;
+}
+
+#currentTimeplusTwelve {
+  margin-left: 50px;
 }
 
 /* Selection Menu */
@@ -166,14 +242,6 @@ div.scrollmenu div:hover {
 
 #question {
   font-size: 60px;
-  color: #FFFFFF;
-  text-align: center;
-  font-weight:bold;
-  margin-bottom: 20px;
-}
-
-#question #assurance {
-  font-size: 30px;
   color: #FFFFFF;
   text-align: center;
   font-weight:bold;

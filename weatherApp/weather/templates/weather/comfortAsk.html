@@ -17,7 +17,7 @@
   <div id="selection" class="">
     <div class="something d-flex flex-row justify-content-center">
       <div class="heightAdjuster">
-      <div id="question"><p>How do you feel today?</p><div id="assurance"><p>(Please select one.)</p></div></div>
+      <div id="question"><p>How do you feel today?</p></div>
       <form class="d-flex flex-row" action="{% url 'weather:submission' %}" choice="" method="post">
         {% csrf_token %}
               <div id="freezing">

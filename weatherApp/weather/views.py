@@ -15,13 +15,30 @@ from django.urls import reverse
 from .models import UserDataPoint, WeatherData
 
 
-def index(request, user_voted=False):
+def index(request, **kwargs):
+    # if kwargs.has_key("user_voted"):
+    #     user_voted = True
+    # else:
+    #     user_voted = False
+
     currentWeather = apiCaller.get_current_dict()
 
     context = {
         'current_temperature': currentWeather['current_temperature'],
         'current_wind_speed': currentWeather['current_windSpeed'],
-        'user_voted': user_voted,
+        'user_voted': False,
+    }
+
+    return render(request, 'weather/index.html', context)
+
+def after_vote_redirect(request):
+    currentWeather = apiCaller.get_current_dict()
+
+    context = {
+        'current_temperature': currentWeather['current_temperature'],
+        'current_wind_speed': currentWeather['current_windSpeed'],
+        'user_voted': True,
+
     }
 
     return render(request, 'weather/index.html', context)
@@ -30,12 +47,15 @@ def comfortAsk(request):
     return render(request, 'weather/comfortAsk.html')
 
 def submission(request):
+    request_copy = request.POST.copy()
     try:
-        selected_choice = request.POST['choice']
+        request_copy.pop("csrfmiddlewaretoken")
+        selected_choice = request_copy.popitem()[0]
+        selected_choice = selected_choice[0]
     except (KeyError):
         # Redisplay the ask form.
         return render(request, 'weather/comfortAsk.html', {
-            'error_message': "You didn't select a choice.",
+            'error_message': str(request.POST),
         })
 
     # currentWeather = apiCaller.get_current_dict()
@@ -55,7 +75,7 @@ def submission(request):
     # dataPoint.recordedWeather = currentWeatherData
     # dataPoint.save()
 
-    return HttpResponseRedirect(reverse('weather', kwargs={user_voted: True}))
+    return HttpResponseRedirect(reverse('weather:redirect'))
 
 
 

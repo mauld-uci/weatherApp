@@ -17,30 +17,31 @@
     <div class="something d-flex flex-row justify-content-center">
       <div class="heightAdjuster">
       <div id="question"><p>How do you feel today?</p><div id="assurance"><p>(Please select one.)</p></div></div>
-      <form class="d-flex flex-row" action="{% url 'weather:submission' %}" method="post">
+      <form class="d-flex flex-row" action="{% url 'weather:submission' %}" choice="" method="post">
         {% csrf_token %}
               <div>
-              <input type="image" src="{% static "weather/svgGraphics/FreezinglogowithShadow.svg" %}" alt="My image" name="choice" value="0">
+              <input type="image" src="{% static "weather/svgGraphics/FreezinglogowithShadow.svg" %}" alt="My image" name="0">
               <p class="Description">Freezing</p>
               </div>
               <div>
-              <input type="image" src="{% static "weather/svgGraphics/ChillylogowithShadow.svg" %}" alt="My image" name="choice" value="1">
+              <input type="image" src="{% static "weather/svgGraphics/ChillylogowithShadow.svg" %}" alt="My image" name="1">
               <p class="Description">Chilly</p>
               </div>
               <div>
-              <input type="image" src="{% static "weather/svgGraphics/JustRightlogowithShadow.svg" %}" alt="My image" name="choice" value="2">
+              <input type="image" src="{% static "weather/svgGraphics/JustRightlogowithShadow.svg" %}" alt="My image" name="2">
               <p class="Description">Just Right</p>
               </div>
               <div>
-              <input type="image" src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image" name="choice" value="3">
+              <input type="image" src="{% static "weather/svgGraphics/ToastylogowithShadow.svg" %}" alt="My image" name="3">
               <p class="Description">Toasty</p>
               </div>
               <div>
-              <input type="image" src="{% static "weather/svgGraphics/OnFirelogowithShadow.svg" %}" alt="My image" name="choice" value="4">
-              <p class="Description">On Fire</p>
+              <input type="image" src="{% static "weather/svgGraphics/OnFirelogowithShadow.svg" %}" alt="My image" name="4">
+                <p class="Description">On Fire</p>
               </div>
             </div>
           </form>
+          {% if error_message %}<p>{{error_message}}</p>{% endif %}
       </div>
     </div>
   </div>

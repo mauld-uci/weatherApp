@@ -21,6 +21,15 @@ weather_moods = {
     "4": "very hot"
 }
 
+weather_pics = {
+    "-1": None,
+    "0": "weather/svgGraphics/FreezinglogowithShadow",
+    "1": "weather/svgGraphics/ChillylogowithShadow.svg",
+    "2": "weather/svgGraphics/JustRightlogo.svg",
+    "3": "weather/svgGraphics/ToastylogowithShadow.svg",
+    "4": "weather/svgGraphics/OnFirelogowithShadow.svg"
+}
+
 def index(request):
     currentWeather = apiCaller.get_current_dict()
 
@@ -31,6 +40,7 @@ def index(request):
         'selected_choice': "-1" if 'selected_choice' not in request.session else request.session['selected_choice']
     }
     context['weather_mood'] = weather_moods[context['selected_choice']]
+    context['weather_pic'] = weather_pics[context['selected_choice']]
 
     return render(request, 'weather/index.html', context)
 

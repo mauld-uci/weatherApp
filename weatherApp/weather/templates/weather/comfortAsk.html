@@ -16,7 +16,8 @@
   <div id="selection" class="">
     <div class="something d-flex flex-row justify-content-center">
       <div class="heightAdjuster">
-      <form class="d-flex flex-row">
+      <form class="d-flex flex-row" action="{% url 'weather:submission' %}" method="post">
+        {% csrf_token %}
         <input type="image" src="{% static "weather/svgGraphics/FreezinglogowithShadow.svg" %}" alt="My image" name="choice" value="0">
         <input type="image" src="{% static "weather/svgGraphics/ChillylogowithShadow.svg" %}" alt="My image" name="choice" value="1">
         <input type="image" src="{% static "weather/svgGraphics/JustRightlogowithShadow.svg" %}" alt="My image" name="choice" value="2">

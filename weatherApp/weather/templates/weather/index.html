@@ -39,13 +39,13 @@
             <!-- This button changes based on input-->
             <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
             <span>Just right. <br>
-            <div id="disclaimer"><a href="comfortAsk/"> Were we wrong?<br>Let us know!</a></span></div>
           {% else%}
             <span>You said today was</span>
             <img src="{% static weather_pic %}" alt="My image">
             <span>{{weather_mood}}<br>
               <p>{{user_data_count}}</p>
           {% endif %}
+          <div id="disclaimer"><a href="comfortAsk/"> Were we wrong?<br>Help us improve our predictions.</a></span></div>
         </div>
       </div>
       <div class="col-sm-2" id="columnTwo">

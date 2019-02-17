@@ -2,7 +2,5 @@
 
 import math
 import statistics
-import weatherdata
 
-from . import apiCaller
 from .models import UserDataPoint, WeatherData

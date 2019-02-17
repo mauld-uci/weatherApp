@@ -9,6 +9,7 @@ Atmosphere seeks to address these issues by learning what climate the user prefe
 
 #### Daily Forecast  
 Checking the daily forecast is a crucial part of many people's morning routines. It often determines what they wear, what they bring, and when they leave home. Atmosphere presents useful, pertinent information about outside climate, to get people out the door sooner.
+![Weather](/images/weather_icns.png)   
 
 #### Comfort Ask  
 Atmosphere is a personalized application, and so needs a personal touch. When the user is outside, Atmosphere will ask how they are feeling. Atmosphere remembers the input, and pairs it with various climate factors, including temperature, wind speed, humidity, and cloud coverage. By collecting this data and analyzing trends, Atmosphere learns what kinds of climates the user prefers, and informs them if the coming day will be warm, cold, or exactly how they like.
@@ -27,6 +28,10 @@ Atmosphere intelligently suggests outfit options based on its comfort assessment
 #### Learning  
 Atmosphere uses statistical analysis to determine how a user might feel given a certain climate. The data collection process ensures that Atmosphere's reccomendations will improve over time. When a user settles into a routine, over a long period of consistent weather, Atmosphere reduces comfort asks for convenience.  
 But people tend to move around and adapt, and Atmosphere accounts for these changes as well. Drastic climate shifts and location changes will prompt more comfort asks, to improve analysis. 
+
+## Screenshots
+![Comfort_Ask](/images/comfort_ask.png)  
+![Weather](/images/weather.png)
 
 ## Authors  
 Michael Auld  

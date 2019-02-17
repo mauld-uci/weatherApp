@@ -16,9 +16,11 @@ from .models import UserDataPoint, WeatherData
 
 
 def index(request, user_voted=False):
+    currentWeather = apiCaller.get_current_dict()
 
     context = {
-        'current_weather': apiCaller.get_current_dict(),
+        'current_temperature': currentWeather['current_temperature'],
+        'current_wind_speed': currentWeather['current_windSpeed'],
         'user_voted': user_voted,
     }
 

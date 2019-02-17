@@ -35,7 +35,7 @@ def pull_current_data(json_object):
     new_dict['current_windSpeed'] = json_object['currently']['windSpeed']
     new_dict['current_humidity'] = json_object['currently']['humidity']
     new_dict['current_apparentTemperature'] = json_object['currently']['apparentTemperature']
-    new_dict['current_Temperature'] = json_object['currently']['temperature']
+    new_dict['current_temperature'] = json_object['currently']['temperature']
     new_dict['current_precipProbability'] = json_object['currently']['precipProbability']
     new_dict['current_summary'] = json_object['currently']['summary']
     new_dict['CURRENT_TIME'] = datetime.now()

@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 import mimetypes
+import apiCaller
 
 from django.shortcuts import get_object_or_404, render
 
@@ -14,7 +15,10 @@ from django.urls import reverse
 from .models import UserDataPoint, WeatherData
 
 
+
+
 def index(request):
+    currentWeather = apiCaller.get_current_dict()
     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
     # #template = loader.get_template('weather/index.html')
     # context = {
@@ -23,7 +27,7 @@ def index(request):
     # #return HttpResponse(template.render(context, request))
     # return render(request, 'weather/index.html', context) #shortcut for the commented out code
     #print(mimetypes.guess_type(static('images/right-arrow.svg'))) 
-    return render(request, 'weather/index.html')
+    return render(request, 'weather/index.html', currentWeather)
 
 # def vote(request, question_id):
     # question = get_object_or_404(Question, pk=question_id)

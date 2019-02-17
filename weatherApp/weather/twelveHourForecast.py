@@ -44,9 +44,9 @@ def generate_namedtuple_perHour(json_object):
                              windSpeed= json_object['currently']['windSpeed'])'''
     time0 = json_object['currently']['time']
     time1 = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time0))
-    time2 = time1.split()[0:2]
-    mins = time1.split()[3:5]
-    if mins >= 30:
+    time2 = int(time1.split()[1][0:2])
+    mins = int(time1.split()[1][3:5])
+    if int(mins) >= 30:
         time2 +=1
 
     temperature = json_object['currently']['temperature']

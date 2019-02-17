@@ -123,11 +123,12 @@ body{
 #twelvehourForecast {
   position: relative;
   width: 100%;
-  height: 300%;
+  height: 100%;
   overflow: hidden;
   background: #8C99BD;
   border-radius: 40px;
   color: white;
+  margin-top: 3%;
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -145,8 +146,65 @@ div.scrollmenu div {
   padding: 14px;
   text-decoration: none;
 }
-div.scrollmenu div:hover {
-  background-color: #777;
+
+.hourtime {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.temp {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#currentTimeplusOne {
+  margin-left: 50px;
+}
+
+#currentTimeplusTwo {
+  margin-left: 50px;
+}
+
+#currentTimeplusThree {
+  margin-left: 50px;
+}
+
+#currentTimeplusFour {
+  margin-left: 50px;
+}
+
+#currentTimeplusFive {
+  margin-left: 50px;
+}
+
+#currentTimeplusSix {
+  margin-left: 50px;
+}
+
+#currentTimeplusSeven {
+  margin-left: 50px;
+}
+
+#currentTimeplusEight {
+  margin-left: 50px;
+}
+
+#currentTimeplusNine {
+  margin-left: 50px;
+}
+
+#currentTimeplusTen {
+  margin-left: 50px;
+}
+
+#currentTimeplusEleven {
+  margin-left: 50px;
+}
+
+#currentTimeplusTwelve {
+  margin-left: 50px;
 }
 
 /* Selection Menu */

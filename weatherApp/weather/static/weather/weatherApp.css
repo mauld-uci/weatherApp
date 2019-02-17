@@ -175,7 +175,7 @@ input {
   height: 150px;
 }
 
-#FreezingButton p {
+.Description {
   color: #FFFFFF;
   text-align: center;
   font-weight:bold;

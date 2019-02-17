@@ -19,7 +19,7 @@ Atmosphere intelligently suggests outfit options based on its comfort assessment
 
 #### Vacation Planning  
 
-#### Social  
+
 
 ## How it Works  
 

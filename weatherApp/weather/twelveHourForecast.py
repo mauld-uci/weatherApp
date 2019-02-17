@@ -11,7 +11,8 @@ HourWeather = namedtuple('Hour', ['time', 'human_time', 'timezone', 'summary', '
 
 
 
-API_KEY = '0b314396b7522fbd939166f3ed3e53a4'
+API_KEY = '27a4937ffd97e90c4b6f20fc66b18731'
+#API_KEY = '0b314396b7522fbd939166f3ed3e53a4'
 
 BASE_URL ='https://api.darksky.net/forecast/'
 
@@ -24,6 +25,7 @@ def get_result(url:str):
     response = None
     try:
         response = urllib.request.urlopen(url)
+        print()
         json_text = response.read().decode(encoding = 'utf-8')
 
         return json.loads(json_text)

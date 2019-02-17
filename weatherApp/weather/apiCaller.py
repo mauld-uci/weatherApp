@@ -7,7 +7,7 @@ from . import Coordinate_Request
 import time
 
 
-API_KEY = '0b314396b7522fbd939166f3ed3e53a4'
+API_KEY = '27a4937ffd97e90c4b6f20fc66b18731'
 
 BASE_URL ='https://api.darksky.net/forecast/'
 #https://api.darksky.net/forecast/0b314396b7522fbd939166f3ed3e53a4/42.3601, -71.0589

@@ -133,8 +133,10 @@ def submission(request):
         windSpeed = currentWeather['current_windSpeed'],
         cloudiness = currentWeather['current_summary'],
         time = currentWeather['current_time'],
-        sunrise = dailyWeather['daily_sunriseTime'],
-        sunsetTime = dailyWeather['daily_sunsetTime']
+        sunrise = "2019-02-15 05:30" if 'daily_sunriseTime' not in dailyWeather else dailyWeather['daily_sunriseTime'],
+        sunsetTime = "2019-02-15 05:30" if "daily_sunsetTime" not in dailyWeather else dailyWeather['daily_sunsetTime']
+        #sunrise = dailyWeather['daily_sunriseTime'],
+        #sunsetTime = dailyWeather['daily_sunsetTime']
     )
 
     currentWeatherData.save()
@@ -183,7 +185,7 @@ def generate_blurb(currentWeather: dict, dailyWeather: dict, feel: str):
         blurb += " It will be raining today, so bring an umbrella! "
     if (dailyWeather['daily_precipProbability']):
         blurb += " It will be sunny out today, so bring your shades!"
-        
+
     if (dailyWeather['daily_apparentTemperatureHigh'] > 90 and dailyWeather['daily_humidity'] >= 0.98):
         blurb += " Feels like a lawless swampland out today, so bring your guns!"
     if (dailyWeather['daily_apparentTemperatureHigh'] > 90 and dailyWeather['daily_windSpeed'] >= 30):

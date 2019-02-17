@@ -1,4 +1,4 @@
-import certifi
+#import certifi
 import json
 import urllib.parse
 import urllib.request

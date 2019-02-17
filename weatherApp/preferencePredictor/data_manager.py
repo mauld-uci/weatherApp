@@ -54,9 +54,23 @@ class PrecipitationData:
 
 class WindData:
     def __init__(self):
-        pass
+        self.min = 0.0
+        self.max = 200.0
+        self.avg = 0.0
+        self.stdev = 0.0
+        self.length = 0.0
+        self.data = []
     def add_data(data: weatherdata.WeatherData):
-        pass
+        wind_speed = data.wind
+        if humidity < self.min:
+            self.min = wind
+        else if humidity > self.max:
+            self.max = wind
+        length += 1
+        avg = (avg*(length-1)+wind)/length
+        data.append(wind)
+        if length >= 2:
+            self.stdev = stdev(data)
 
 class CloudData:
     def __init__(self):
@@ -82,16 +96,24 @@ cloud_list = [CloudData()  for _ in range(5)]
 sun_list = [SunData()  for _ in range(5)]
 #################################
 
-def store_data (data: weatherdata.WeatherData):
+def parse_data (data: weatherdata.WeatherData):
+    '''
+    Based on the feel index, decides whether to add data to database or compare
+    '''
     feel_index = data.feel
-    temperature_list[feel_index].add_data(data)
-    apparent_list[feel_index].add_data(data)
-    humididty_list[feel_index].add_data(data)
-    precipitation_list[feel_index].add_data(data)
-    wind_list[feel_index].add_data(data)
-    cloud_list[feel_index].add_data(data)
-    sun_list[feel_index].add_data(data)
-
+    if feel_index == -1:
+        comfort_level(data)
+    elif 0 <= feel_index <= 4 :
+        temperature_list[feel_index].add_data(data)
+        apparent_list[feel_index].add_data(data)
+        humididty_list[feel_index].add_data(data)
+        precipitation_list[feel_index].add_data(data)
+        wind_list[feel_index].add_data(data)
+        cloud_list[feel_index].add_data(data)
+        sun_list[feel_index].add_data(data)
+    else:
+        raise Exception("Invalid Feel Input")
 
 def comfort_level (weatherdata.WeatherData):
-    pass
+    for td in temperature_list:
+        stdevs_from_mean = []

@@ -20,7 +20,16 @@ def index(request):
 
     return render(request, 'weather/index.html', currentWeather)
 
-def comfortAsk(request):
+def submission(request):
+    try:
+        selected_choice = request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):
+        # Redisplay the ask form.
+        return render(request, 'weather/comfortAsk.html', {
+            'error_message': "You didn't select a choice.",
+        })
+
+
     currentWeather = apiCaller.get_current_dict()
     currentWeatherData = WeatherData()
     dailyWeather = apiCaller.get_daily_dict()
@@ -37,7 +46,10 @@ def comfortAsk(request):
     # dataPoint.feeling = [SOME INPUT]
     # dataPoint.recordedWeather = currentWeatherData
     # dataPoint.save()
-    return render(request, 'weather/comfortAsk.html')
+
+    return HttpResponseRedirect(reverse('index', args=(user_voted=True)))
+
+
 
 # def vote(request, question_id):
     # question = get_object_or_404(Question, pk=question_id)

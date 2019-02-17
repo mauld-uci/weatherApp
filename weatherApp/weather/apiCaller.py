@@ -52,11 +52,11 @@ def pull_daily_data(json_object):
     daily_dict['daily_precipType'] = json_object['daily']['data'][0]['precipType']
     daily_dict['daily_precipProbability'] = json_object['daily']['data'][0]['precipProbability']
     sunrise = json_object['daily']['data'][0]['sunriseTime']
-    sunrise1 = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(sunrise))
+    sunrise1 = datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(sunrise)), '%Y-%m-%d %H:%M:%S')
     sunset = json_object['daily']['data'][0]['sunsetTime']
-    sunset1 = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(sunset))
-    daily_dict['daily_sunriseTime'] = sunrise1
-    daily_dict['daily_sunsetTime'] = sunset1
+    sunset1 = datetime.strptime(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(sunset)), '%Y-%m-%d %H:%M:%S')
+    daily_dict['sunrise_time'] = sunrise1
+    daily_dict['sunset_time'] = sunset1
     daily_dict['daily_summary'] = json_object['daily']['data'][0]['summary']
     daily_dict['current_time'] = datetime.now()
     return daily_dict

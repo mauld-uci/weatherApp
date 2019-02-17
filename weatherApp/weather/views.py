@@ -41,8 +41,14 @@ appropriate_clothing = {
     "4": ["weather/svgGraphics/clothing/tanktop.svg", "weather/svgGraphics/clothing/sunglasses.svg"]
 }
 
+time_of_day_pics = {
+    "day": "weather/svgGraphics/Sun.svg",
+    "night": "weather/svgGraphics/Moon.svg"
+}
+
 def index(request):
     currentWeather = apiCaller.get_current_dict()
+    dailyWeather = apiCaller.get_daily_dict()
     current_temp = currentWeather['current_temperature']
 
     hourly_forecast = twelveHourForecast.run()
@@ -63,6 +69,11 @@ def index(request):
 
     feeling_prediction = str(stats_analysis.find_closest_feeling(current_temp))
 
+    if currentWeather['current_time'] >= dailyWeather['sunrise_time'] and currentWeather['current_time'] < dailyWeather['sunset_time']:
+        time_of_day = "day"
+    else:
+        time_of_day = "night"
+
     context = {
         'current_temperature': current_temp,
         'current_wind_speed': currentWeather['current_windSpeed'],
@@ -75,7 +86,8 @@ def index(request):
         'user_data_count': UserDataPoint.objects.count(),
         'hours': hours,
         'hourly_temps': hourly_temps,
-        'blurb': generate_blurb(currentWeather, feeling_prediction)
+        'blurb': generate_blurb(currentWeather, dailyWeather, feeling_prediction),
+        'time_of_day': time_of_day_pics[time_of_day]
     }
     context['weather_mood'] = weather_moods[context['selected_choice']]
     context['weather_pic'] = weather_pics[context['selected_choice']]
@@ -134,9 +146,8 @@ def submission(request):
     return HttpResponseRedirect(reverse('weather:index'))
 
 
-def generate_blurb(currentWeather: dict, feel: str):
+def generate_blurb(currentWeather: dict, dailyWeather: dict, feel: str):
     currentWeather = apiCaller.get_current_dict()
-    dailyWeather = apiCaller.get_daily_dict()
     feel = int(feel)
 
     blurb = ''

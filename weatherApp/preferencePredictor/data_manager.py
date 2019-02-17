@@ -4,45 +4,94 @@ import math
 import statistics
 import weatherdata
 
-feel_index = {"freezing": 0, "cold": 1, "perfect": 2, "hot": 3, "burning": 4}
-freezing_temp, cold_temp, perfect_temp, hot_temp, burning_temp = ([] for i in range(5))
+class TemperatureData:
+    def __init__(self):
+        self.min = 400.0
+        self.max = -400.0
+        self.avg = 0.0
+        self.stdev = 0.0
+        self.length = 0
+        self.data = []
 
-data = []
-temperature_data = []
+    def add_data(data: weatherdata.WeatherData):
+        temperature = data.temperature
+        if temperature < self.min:
+            self.min = temperature
+        else if temperature > self.max:
+            self.max = temperature
+        length += 1
+        avg = (avg*(length-1)+temperature)/length
+        data.append(temperature)
+        if length >= 2:
+            self.stdev = stdev(data)
+
+class HumidityData:
+    def __init__(self):
+        self.min = 1.0
+        self.max = 0.0
+        self.avg = 0.0
+        self.stdev = 0.0
+        self.length = 0.0
+        self.data = []
+
+    def add_data(data: weatherdata.WeatherData):
+        humdity = data.humidity
+        if humidity < self.min:
+            self.min = humidity
+        else if humidity > self.max:
+            self.max = humidity
+        length += 1
+        avg = (avg*(length-1)+humidity)/length
+        data.append(humidity)
+        if length >= 2:
+            self.stdev = stdev(data)
+
+class PrecipitationData:
+    def __init__(self):
+        pass
+    def add_data(data: weatherdata.WeatherData):
+        pass
+
+class WindData:
+    def __init__(self):
+        pass
+    def add_data(data: weatherdata.WeatherData):
+        pass
+
+class CloudData:
+    def __init__(self):
+        pass
+    def add_data(data: weatherdata.WeatherData):
+        pass
+
+class SunData:
+    def __init__(self):
+        pass
+    def add_data(data: weatherdata.WeatherData):
+        pass
+
+#################################
+# REPLACE WITH DATABASE STORAGE #
+#################################
+temperature_list = [TemperatureData() for _ in range(5)]
+apparent_list = [TemperatureData() for _ in range(5)]
+humididty_list = [HumidityData()  for _ in range(5)]
+precipitation_list = [PrecipitationData()  for _ in range(5)]
+wind_list = [WindData()  for _ in range(5)]
+cloud_list = [CloudData()  for _ in range(5)]
+sun_list = [SunData()  for _ in range(5)]
+#################################
+
+def store_data (data: weatherdata.WeatherData):
+    feel_index = data.feel
+    temperature_list[feel_index].add_data(data)
+    apparent_list[feel_index].add_data(data)
+    humididty_list[feel_index].add_data(data)
+    precipitation_list[feel_index].add_data(data)
+    wind_list[feel_index].add_data(data)
+    cloud_list[feel_index].add_data(data)
+    sun_list[feel_index].add_data(data)
 
 
-def add_data_point(point : weatherdata.WeatherData) -> None:
-    '''
-    Adds a data point to the WeatherData array
-    '''
-    data.append(point)
-
-    if point.feel == 0:
-        freezing_temp.append(point.temperature)
-    elif point.feel == 1:
-        cold_temp.append(point.temperature)
-    elif point.feel == 2:
-        perfect_temp.append(point.temperature)
-    elif point.feel == 3:
-        hot_temp.append(point.temperature)
-    elif point.feel == 4:
-        burning_temp.append(point.temperature)
-
-    print(freezing_temp)
-    print(data)
-
-
-def temperature_comfort(measured: float, data: [weatherdata.WeatherData]) -> int:
-    '''
-    Determines the comfort level (0-4) of the measured temperature
-    '''
-    
-
-if __name__ == '__main__':
-    while True:
-        temp = input("Give a temperature: ")
-        if (temp == '') : break
-        temp = int(temp)
-        feels = feel_index[input("Give a feeling: ")]
-        add_data_point(weatherdata.WeatherData(feels, temp, 0, 0, 0, 0, 0, 0, 0))
-    temperature_comfort(1.1111, data)
+def comfort_level (weatherdata.WeatherData):
+    pass

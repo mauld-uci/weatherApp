@@ -38,8 +38,8 @@
             <span>It's going to be</span>
             <!-- This button changes based on input-->
             <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
-            <span>Just right.<br>
-            <a href="comfortAsk/"> Disagree? Click here!</a></span>
+            <span>Just right. <br>
+            <div id="disclaimer"><a href="comfortAsk/"> Were we wrong?<br>Let us know!</a></span></div>
           {% else%}
             <span>You said today was</span>
             <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
@@ -64,7 +64,37 @@
 
     <div class="row" id="rowTwo">
       <div class="col-sm-12" id="columnThree">
-        <div id="twelvehourForecast"></div>
+        <div id="twelvehourForecast">
+          <div id="currentTimeplusOne"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusTwo"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusThree"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusFour"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusFive"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusSix"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusSeven"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusEight"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusNine"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusTen"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusEleven"><span>time</span><span>temp</span></div>
+          <div id="currentTimeplusTwelve"><span>time</span><span>temp</span></div>
+          <div class="scrollmenu">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#support">Support</a>
+          <a href="#blog">Blog</a>
+          <a href="#tools">Tools</a>
+          <a href="#base">Base</a>
+          <a href="#custom">Custom</a>
+          <a href="#more">More</a>
+          <a href="#logo">Logo</a>
+          <a href="#friends">Friends</a>
+          <a href="#partners">Partners</a>
+          <a href="#people">People</a>
+          <a href="#work">Work</a>
+        </div>
+        </div>
       </div>
     </div>
 

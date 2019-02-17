@@ -34,10 +34,17 @@
           <span>Ex. Irvine CA</spans>
         </div>
         <div id="statisticalValue">
+          {% if user_voted == false %}
           <span>It's going to be</span>
           <!-- This button changes based on input-->
           <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
-          <span>Just right.<br><a href="comfortAsk.html"> Disagree? Click here!</a></span>
+          <span>Just right.<br>
+          <a href="comfortAsk.html"> Disagree? Click here!</a></span>
+          {% else %}
+          <span>You said today was</span>
+          <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
+          <span>Just right.<br>
+          {% endif %}
         </div>
       </div>
       <div class="col-sm-2" id="columnTwo">

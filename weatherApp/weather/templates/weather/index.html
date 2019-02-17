@@ -42,7 +42,7 @@
       </div>
       <div class="col-sm-2" id="columnTwo">
         <!-- Temperature value is based on API -->
-        <div id="temperature"><span> 61&#176;F </span></div>
+        <div id="temperature"><span> {{current_Temperature|stringformat:".0f"}}&#176;F </span></div>
         <!-- Weather type image is based on API -->
         <div id="weatherType"><img src="{% static "weather/svgGraphics/Moon.svg" %}" alt="My image"></div>
         <!-- Wind speed value is based on API -->

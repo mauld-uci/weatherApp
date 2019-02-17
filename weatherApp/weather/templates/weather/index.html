@@ -31,7 +31,7 @@
       <div class="col-sm-3" id="column1">
         <div id="locationBox">
           <img src="{% static "weather/svgGraphics/LocationLogo.svg" %}" alt="My image">
-          <span>Ex. Irvine CA</spans>
+          <span>Irvine, CA</spans>
         </div>
         <div id="statisticalValue">
           {% if user_voted == False %}
@@ -43,7 +43,7 @@
             <span>You said today was</span>
             <img src="{% static weather_pic %}" alt="My image">
             <span>{{weather_mood}}<br>
-              <p>{{user_data_count}}</p>
+            <p>{{user_data_count}}</p>
           {% endif %}
           <div id="disclaimer"><a href="comfortAsk/"> Were we wrong?<br>Help us improve our predictions.</a></span></div>
         </div>

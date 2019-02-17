@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import mimetypes
 from . import apiCaller
 from . import twelveHourForecast
+from . import stats_analysis
 
 from django.shortcuts import get_object_or_404, render
 
@@ -15,11 +16,11 @@ from .models import UserDataPoint, WeatherData
 
 weather_moods = {
     "-1": None,
-    "0": "very cold",
-    "1": "a little chilly",
-    "2": "just how you like it",
-    "3": "a bit warm ",
-    "4": "very hot"
+    "0": "freezing!",
+    "1": "a little chilly.",
+    "2": "just right.",
+    "3": "a bit warm.",
+    "4": "burnin' hot."
 }
 
 weather_pics = {
@@ -31,8 +32,18 @@ weather_pics = {
     "4": "weather/svgGraphics/OnFire.svg"
 }
 
+appropriate_clothing = {
+    "-1": None,
+    "0": ["weather/svgGraphics/clothing/jacket.svg", "weather/svgGraphics/clothing/jacket.svg"],
+    "1": ["weather/svgGraphics/clothing/jacket.svg", "weather/svgGraphics/clothing/longsleeve.svg"],
+    "2": ["weather/svgGraphics/clothing/tshirt.svg", "weather/svgGraphics/clothing/longsleeve.svg"],
+    "3": ["weather/svgGraphics/clothing/tshirt.svg", "weather/svgGraphics/clothing/sunglasses.svg"],
+    "4": ["weather/svgGraphics/clothing/tanktop.svg", "weather/svgGraphics/clothing/sunglasses.svg"]
+}
+
 def index(request):
     currentWeather = apiCaller.get_current_dict()
+    current_temp = currentWeather['current_temperature']
 
     hourly_forecast = twelveHourForecast.run()
     unzip_hourly = list(zip(*hourly_forecast))
@@ -50,14 +61,21 @@ def index(request):
     hours = tuple(hours_list)
     hourly_temps = unzip_hourly[1]
 
+    feeling_prediction = str(stats_analysis.find_closest_feeling(current_temp))
+
     context = {
-        'current_temperature': currentWeather['current_temperature'],
+        'current_temperature': current_temp,
         'current_wind_speed': currentWeather['current_windSpeed'],
+        'feeling_prediction': weather_moods[feeling_prediction],
+        'feeling_prediction_pic': weather_pics[feeling_prediction],
+        'suggested_clothing_1': appropriate_clothing[feeling_prediction][0],
+        'suggested_clothing_2': appropriate_clothing[feeling_prediction][1],
         'user_voted': True if 'user_voted' in request.session else False,
         'selected_choice': "-1" if 'selected_choice' not in request.session else request.session['selected_choice'],
         'user_data_count': UserDataPoint.objects.count(),
         'hours': hours,
-        'hourly_temps': hourly_temps
+        'hourly_temps': hourly_temps,
+        'blurb': generate_blurb(currentWeather, feeling_prediction)
     }
     context['weather_mood'] = weather_moods[context['selected_choice']]
     context['weather_pic'] = weather_pics[context['selected_choice']]
@@ -116,22 +134,22 @@ def submission(request):
     return HttpResponseRedirect(reverse('weather:index'))
 
 
-def blurbs(request):
+def generate_blurb(currentWeather: dict, feel: str):
     currentWeather = apiCaller.get_current_dict()
     dailyWeather = apiCaller.get_daily_dict()
-    feel = None #GET INPUT!!!!!!!
+    feel = int(feel)
 
     blurb = ''
-    hour_min_sec = currentWeather['CURRENT_TIME'].split(' ')[1].split(':')
-    time_in_min = int(hour_min_sec[0])*60 + int(hour_min_sec[1]) #0-1440 minutes
-    if 240 <= time_in_min < 720:
-        blurb += "Good Morning! "
-    elif 720 <=  time_in_min < 1020:
-        blurb += "Good Afternoon! "
-    elif 1020 <= time_in_min < 1440:
-        blurb += "Good Evening! "
-    else:
-        blurb += "Good Day! "
+    # hour_min_sec = currentWeather['current_time'].split(' ')[1].split(':')
+    # time_in_min = int(hour_min_sec[0])*60 + int(hour_min_sec[1]) #0-1440 minutes
+    # if 240 <= time_in_min < 720:
+    #     blurb += "Good Morning! "
+    # elif 720 <=  time_in_min < 1020:
+    #     blurb += "Good Afternoon! "
+    # elif 1020 <= time_in_min < 1440:
+    #     blurb += "Good Evening! "
+    # else:
+    #     blurb += "Good Day! "
 
     blurb += "It's going to be "
 
@@ -162,7 +180,7 @@ def blurbs(request):
     if (dailyWeather['daily_apparentTemperatureHigh'] == 69 and dailyWeather['daily_humidity'] == .69):
         blurb += " Hehe."
 
-    return render(request, 'weather/index.html', currentWeather)
+    return blurb
 
 def data_type(request):
     currentWeather = apiCaller.get_current_dict()

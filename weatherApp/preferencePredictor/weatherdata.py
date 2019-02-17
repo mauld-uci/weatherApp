@@ -1,11 +1,11 @@
 #weatherdata.py
 
 class WeatherData:
-    def __init__(self, feel: int, temperature: float, feels_like: float, humidity: float ,
+    def __init__(self, feel: int, temperature: float, apparent: float, humidity: float ,
     precipitation: int, wind: float, cloud: int, sun:int , time:int ) -> None:
-        self.feel = feel;
+        self.feel = feel #[0-4]:freezing-burning; [-1]: is a weather check
         self.temperature = temperature
-        self.feels_like = feels_like
+        self.apparent = apparent
         self.humidity = humidity
         self.precipitation = precipitation
         self.wind = wind

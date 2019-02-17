@@ -83,11 +83,11 @@ def blurbs(request):
     time_in_min = int(hour_min_sec[0])*60 + int(hour_min_sec[1]) #0-1440 minutes
     if 240 <= time_in_min < 720:
         blurb += "Good Morning! "
-    elif 720 <= time_in_min < 1020:
+    elif 720 <=  time_in_min < 1020:
         blurb += "Good Afternoon! "
     elif 1020 <= time_in_min < 1440:
         blurb += "Good Evening! "
-    else
+    else:
         blurb += "Good Day! "
 
     blurb += "It's going to be "

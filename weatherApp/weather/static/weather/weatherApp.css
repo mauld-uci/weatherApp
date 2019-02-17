@@ -181,6 +181,22 @@ input {
   font-weight:bold;
 }
 
-#FreezingButton:hover {
-  background-image: url("weather/svgGraphics/Freezing.svg")
+#freezing:hover {
+  transform: scale(0.95);
+}
+
+#chilly:hover {
+  transform: scale(0.95);
+}
+
+#justright:hover {
+  transform: scale(0.95);
+}
+
+#toasty:hover {
+  transform: scale(0.95);
+}
+
+#onfire:hover {
+  transform: scale(0.95);
 }

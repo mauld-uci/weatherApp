@@ -15,24 +15,7 @@ API_KEY = '0b314396b7522fbd939166f3ed3e53a4'
 
 BASE_URL ='https://api.darksky.net/forecast/'
 
-'''
-def format_time():
-    seconds = time.time()
-    local_time = time.ctime(seconds)
-    split = local_time.split()
-    days = {'Sat': '07', 'Sun': '01', 'Mon': '02', 'Tue': '03', 'Wed': '04', 'Thu':'05', 'Fri':'06' }
-    months = {'Jan': '01,', 'Feb': '02', 'Mar':'03', 'Apr': '04', 'May': '05', 'Jun': '06',
-              'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'}
-    year = split[-1]
-    month = months[split[1]]
-    day = split[2]
-    hour = split[3][0:2]
-    minute = split[3][3:5]
-    second = split[3][6:8]
-    time = "[{}]-[{}]-[{}]T[{}]:[{}]:[{}]".format(year, month, day, hour, minute, second)
-    return time
 
-'''
 def build_search_url(lat: float, lon: float, time):
     query_parameters= [('latitude', lat), ('longitude', lon)]
     return BASE_URL + API_KEY + "/" + str(query_parameters[0][1]) + "," + str(query_parameters[1][1]) + "," + str(time)
@@ -84,5 +67,5 @@ def run():
     return result
 
 
-if __name__ == "__main__":
-    print(run())
+#if __name__ == "__main__":
+ #   run()

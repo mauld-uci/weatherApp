@@ -175,10 +175,12 @@ input {
   height: 150px;
 }
 
-#querybutton input {
-  width: 200px;
-  height: 130px;
-  margin-left: 10px;
-  margin-top: 5px;
-  border-radius: 70px;
+#FreezingButton p {
+  color: #FFFFFF;
+  text-align: center;
+  font-weight:bold;
+}
+
+#FreezingButton:hover {
+  background-image: url("weather/svgGraphics/Freezing.svg")
 }

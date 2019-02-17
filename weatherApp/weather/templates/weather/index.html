@@ -39,13 +39,13 @@
             <!-- This button changes based on input-->
             <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
             <span>Just right. <br>
-            <div id="disclaimer"><a href="comfortAsk/"> Were we wrong?<br>Let us know!</a></span></div>
           {% else%}
             <span>You said today was</span>
             <img src="{% static weather_pic %}" alt="My image">
             <span>{{weather_mood}}<br>
               <p>{{user_data_count}}</p>
           {% endif %}
+          <div id="disclaimer"><a href="comfortAsk/"> Were we wrong?<br>Help us improve our predictions.</a></span></div>
         </div>
       </div>
       <div class="col-sm-2" id="columnTwo">
@@ -68,18 +68,18 @@
       <div class="col-sm-12" id="columnThree">
         <div id="twelvehourForecast">
           <div class="scrollmenu">
-            <div id="currentTimeplusOne"><span class='hourtime'>5pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusTwo"><span class='hourtime'>6pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusThree"><span class='hourtime'>7pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusFour"><span class='hourtime'>8pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusFive"><span class='hourtime'>9pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusSix"><span class='hourtime'>10pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusSeven"><span class='hourtime'>11pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusEight"><span class='hourtime'>12pm</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusNine"><span class='hourtime'>1am</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusTen"><span class='hourtime'>2am</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusEleven"><span class='hourtime'>3am</span><br><span class='temp'>temp</span></div>
-            <div id="currentTimeplusTwelve"><span class='hourtime'>4am</span><br><span class='temp'>temp</span></div>
+            <div id="currentTimeplusOne"><span class='hourtime'>{{hours.0}}</span><br><span class='temp'>{{hourly_temps.0|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusTwo"><span class='hourtime'>{{hours.1}}</span><br><span class='temp'>{{hourly_temps.1|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusThree"><span class='hourtime'>{{hours.2}}</span><br><span class='temp'>{{hourly_temps.2|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusFour"><span class='hourtime'>{{hours.3}}</span><br><span class='temp'>{{hourly_temps.3|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusFive"><span class='hourtime'>{{hours.4}}</span><br><span class='temp'>{{hourly_temps.4|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusSix"><span class='hourtime'>{{hours.5}}</span><br><span class='temp'>{{hourly_temps.5|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusSeven"><span class='hourtime'>{{hours.6}}</span><br><span class='temp'>{{hourly_temps.6|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusEight"><span class='hourtime'>{{hours.7}}</span><br><span class='temp'>{{hourly_temps.7|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusNine"><span class='hourtime'>{{hours.8}}</span><br><span class='temp'>{{hourly_temps.8|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusTen"><span class='hourtime'>{{hours.9}}</span><br><span class='temp'>{{hourly_temps.9|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusEleven"><span class='hourtime'>{{hours.10}}</span><br><span class='temp'>{{hourly_temps.10|stringformat:".0f"}}&#176;F</span></div>
+            <div id="currentTimeplusTwelve"><span class='hourtime'>{{hours.11}}</span><br><span class='temp'>{{hourly_temps.11|stringformat:".0f"}}&#176;F</span></div>
         </div>
         </div>
       </div>

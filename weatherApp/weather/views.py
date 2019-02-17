@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import mimetypes
 from . import apiCaller
+from . import twelveHourForecast
 
 from django.shortcuts import get_object_or_404, render
 
@@ -33,12 +34,30 @@ weather_pics = {
 def index(request):
     currentWeather = apiCaller.get_current_dict()
 
+    hourly_forecast = twelveHourForecast.run()
+    unzip_hourly = list(zip(*hourly_forecast))
+    hours = unzip_hourly[0]
+    hours_list = []
+    for each in hours:
+        newTime = ""
+        if int(each) > 12:
+            newTime = str(each-12) + 'pm'
+        elif int(each) == 12:
+            newTime = str(each) + 'pm'
+        else:
+            newTime = str(each) + 'am'
+        hours_list.append(newTime)
+    hours = tuple(hours_list)
+    hourly_temps = unzip_hourly[1]
+
     context = {
         'current_temperature': currentWeather['current_temperature'],
         'current_wind_speed': currentWeather['current_windSpeed'],
         'user_voted': True if 'user_voted' in request.session else False,
         'selected_choice': "-1" if 'selected_choice' not in request.session else request.session['selected_choice'],
-        'user_data_count': UserDataPoint.objects.count()
+        'user_data_count': UserDataPoint.objects.count(),
+        'hours': hours,
+        'hourly_temps': hourly_temps
     }
     context['weather_mood'] = weather_moods[context['selected_choice']]
     context['weather_pic'] = weather_pics[context['selected_choice']]

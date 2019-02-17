@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 import urllib.parse
 import urllib.request
-import Coordinate_Request
+from . import Coordinate_Request
 from collections import namedtuple
 HourWeather = namedtuple('Hour', ['time', 'human_time', 'timezone', 'summary', 'precipProbability', 'temperature', 'apparentTemperature',
                                   'humidity', 'windSpeed'])
@@ -33,7 +33,7 @@ def get_result(url:str):
             response.close()
 
 def generate_namedtuple_perHour(json_object):
-    hour_tuple = HourWeather(time = json_object['currently']['time'],
+    '''hour_tuple = HourWeather(time = json_object['currently']['time'],
                              human_time = str(datetime.now()),
                              timezone= json_object['timezone'],
                              summary= json_object['currently']['summary'],
@@ -41,7 +41,16 @@ def generate_namedtuple_perHour(json_object):
                              temperature= json_object['currently']['temperature'],
                              apparentTemperature= json_object['currently']['apparentTemperature'],
                              humidity= json_object['currently']['humidity'],
-                             windSpeed= json_object['currently']['windSpeed'])
+                             windSpeed= json_object['currently']['windSpeed'])'''
+    time0 = json_object['currently']['time']
+    time1 = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time0))
+    time2 = int(time1.split()[1][0:2])
+    mins = int(time1.split()[1][3:5])
+    if int(mins) >= 30:
+        time2 +=1
+
+    temperature = json_object['currently']['temperature']
+    hour_tuple = (time2, temperature)
     return hour_tuple
 
 def pull_hour_data(lat, lon, time):

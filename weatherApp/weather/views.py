@@ -24,7 +24,7 @@ def index(request):
     # }
     # #return HttpResponse(template.render(context, request))
     # return render(request, 'weather/index.html', context) #shortcut for the commented out code
-    #print(mimetypes.guess_type(static('images/right-arrow.svg'))) 
+    #print(mimetypes.guess_type(static('images/right-arrow.svg')))
     return render(request, 'weather/index.html')
 
 # def vote(request, question_id):

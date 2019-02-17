@@ -1,4 +1,4 @@
-#apiCaller.py
+import certifi
 import json
 import urllib.parse
 import urllib.request
@@ -69,5 +69,5 @@ def get_current_dict():
     return result
 
 if __name__ == "__main__":
-    get_daily_dict()
-    get_current_dict()
+    print(get_daily_dict())
+    print(get_current_dict())

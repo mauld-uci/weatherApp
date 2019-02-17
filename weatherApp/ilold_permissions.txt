@@ -1,0 +1,111 @@
+total 8
+-rw-r--r--  1 lilypham  staff  2577 Feb 16 16:13 README.md
+drwxr-xr-x  3 lilypham  staff    96 Feb 16 13:55 images
+drwxr-xr-x  9 lilypham  staff   288 Feb 16 17:34 weatherApp
+
+/Users/lilypham/weatherApp/images:
+total 40
+-rw-r--r--  1 lilypham  staff  20023 Feb 16 13:55 logo.png
+
+/Users/lilypham/weatherApp/weatherApp:
+total 392
+-rw-r--r--   1 lilypham  staff  155648 Feb 16 14:35 db.sqlite3
+-rw-r--r--   1 lilypham  staff       0 Feb 16 17:34 ilold_permissions.txt
+-rwxr-xr-x   1 lilypham  staff     808 Feb 16 00:00 manage.py
+drwxr-xr-x   5 lilypham  staff     160 Feb 16 16:57 preferencePredictor
+drwxr-xr-x  16 lilypham  staff     512 Feb 16 17:17 weather
+drwxr-xr-x   7 lilypham  staff     224 Feb 16 14:20 weatherApp
+
+/Users/lilypham/weatherApp/weatherApp/preferencePredictor:
+total 16
+-rw-r--r--  1 lilypham  staff    0 Feb 16 13:32 __init__.py
+-rw-r--r--  1 lilypham  staff  844 Feb 16 16:57 data_manager.py
+-rw-r--r--  1 lilypham  staff  810 Feb 16 16:57 weatherdata.py
+
+/Users/lilypham/weatherApp/weatherApp/weather:
+total 64
+-rw-r--r--@  1 lilypham  staff   895 Feb 16 16:56 Coordinate_Request.py
+-rw-r--r--   1 lilypham  staff     0 Feb 16 17:17 __init__.py
+drwxr-xr-x  10 lilypham  staff   320 Feb 16 17:25 __pycache__
+-rw-r--r--   1 lilypham  staff   128 Feb 16 00:36 admin.py
+-rw-r--r--@  1 lilypham  staff  2941 Feb 16 17:25 apiCaller.py
+-rw-r--r--   1 lilypham  staff   154 Feb 16 00:36 apps.py
+drwxr-xr-x   6 lilypham  staff   192 Feb 16 14:34 migrations
+-rw-r--r--   1 lilypham  staff   734 Feb 16 14:32 models.py
+drwxr-xr-x   3 lilypham  staff    96 Feb 16 12:07 static
+drwxr-xr-x   4 lilypham  staff   128 Feb 16 11:38 templates
+-rw-r--r--   1 lilypham  staff   125 Feb 16 00:36 tests.py
+-rw-r--r--   1 lilypham  staff   304 Feb 16 16:13 urls.py
+-rw-r--r--   1 lilypham  staff  1774 Feb 16 17:25 views.py
+
+/Users/lilypham/weatherApp/weatherApp/weather/__pycache__:
+total 64
+-rw-r--r--  1 lilypham  staff  1061 Feb 16 17:25 Coordinate_Request.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   144 Feb 16 17:18 __init__.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   236 Feb 16 14:20 admin.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff  2619 Feb 16 17:25 apiCaller.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   413 Feb 16 14:20 apps.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   997 Feb 16 14:32 models.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   298 Feb 16 16:50 urls.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   743 Feb 16 17:25 views.cpython-37.pyc
+
+/Users/lilypham/weatherApp/weatherApp/weather/migrations:
+total 16
+-rw-r--r--  1 lilypham  staff  1167 Feb 16 01:47 0001_initial.py
+-rw-r--r--  1 lilypham  staff  1748 Feb 16 14:34 0002_auto_20190216_1434.py
+-rw-r--r--  1 lilypham  staff     0 Feb 16 00:36 __init__.py
+drwxr-xr-x  5 lilypham  staff   160 Feb 16 14:35 __pycache__
+
+/Users/lilypham/weatherApp/weatherApp/weather/migrations/__pycache__:
+total 24
+-rw-r--r--  1 lilypham  staff  1054 Feb 16 14:20 0001_initial.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff  1353 Feb 16 14:35 0002_auto_20190216_1434.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   155 Feb 16 14:20 __init__.cpython-37.pyc
+
+/Users/lilypham/weatherApp/weatherApp/weather/static:
+total 0
+drwxr-xr-x  4 lilypham  staff  128 Feb 16 16:21 weather
+
+/Users/lilypham/weatherApp/weatherApp/weather/static/weather:
+total 8
+drwxr-xr-x  14 lilypham  staff  448 Feb 16 16:21 svgGraphics
+-rw-r--r--   1 lilypham  staff  862 Feb 16 16:48 weatherApp.css
+
+/Users/lilypham/weatherApp/weatherApp/weather/static/weather/svgGraphics:
+total 112
+-rw-r--r--  1 lilypham  staff   410 Feb 16 13:17 Chilly.svg
+-rw-r--r--  1 lilypham  staff   352 Feb 16 13:17 Cloud.svg
+-rw-r--r--  1 lilypham  staff  3147 Feb 16 13:17 CloudwithRain.svg
+-rw-r--r--  1 lilypham  staff  1433 Feb 16 13:17 CloudwithSnow.svg
+-rw-r--r--  1 lilypham  staff   696 Feb 16 13:32 Freezing.svg
+-rw-r--r--  1 lilypham  staff  1032 Feb 16 16:21 JustRightlogo.svg
+-rw-r--r--  1 lilypham  staff   356 Feb 16 16:21 LocationLogo.svg
+-rw-r--r--  1 lilypham  staff   334 Feb 16 13:17 Moon.svg
+-rw-r--r--  1 lilypham  staff   917 Feb 16 13:17 OnFirelogo.svg
+-rw-r--r--  1 lilypham  staff   645 Feb 16 13:17 Sun.svg
+-rw-r--r--  1 lilypham  staff   665 Feb 16 13:17 Toastylogo.svg
+-rw-r--r--  1 lilypham  staff  9046 Feb 16 16:21 ToastylogowithShadow.svg
+
+/Users/lilypham/weatherApp/weatherApp/weather/templates:
+total 0
+drwxr-xr-x  4 lilypham  staff  128 Feb 16 16:30 weather
+
+/Users/lilypham/weatherApp/weatherApp/weather/templates/weather:
+total 16
+-rw-r--r--  1 lilypham  staff   478 Feb 16 10:38 detail.html
+-rw-r--r--  1 lilypham  staff  2942 Feb 16 17:08 index.html
+
+/Users/lilypham/weatherApp/weatherApp/weatherApp:
+total 24
+-rw-r--r--  1 lilypham  staff     0 Feb 16 00:00 __init__.py
+drwxr-xr-x  6 lilypham  staff   192 Feb 16 16:50 __pycache__
+-rw-r--r--  1 lilypham  staff  3326 Feb 16 14:20 settings.py
+-rw-r--r--  1 lilypham  staff   852 Feb 16 01:12 urls.py
+-rw-r--r--  1 lilypham  staff   398 Feb 16 00:00 wsgi.py
+
+/Users/lilypham/weatherApp/weatherApp/weatherApp/__pycache__:
+total 32
+-rw-r--r--  1 lilypham  staff   147 Feb 16 14:20 __init__.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff  2441 Feb 16 14:20 settings.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff  1036 Feb 16 14:20 urls.cpython-37.pyc
+-rw-r--r--  1 lilypham  staff   557 Feb 16 16:50 wsgi.cpython-37.pyc

@@ -21,7 +21,7 @@ def index(request):
     return render(request, 'weather/index.html', currentWeather)
 
 def comfortAsk(request):
-    return render(request, 'weeather/comfortAsk.html')
+    return render(request, 'weather/comfortAsk.html')
 
 # def vote(request, question_id):
     # question = get_object_or_404(Question, pk=question_id)

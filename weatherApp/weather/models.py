@@ -8,21 +8,17 @@ import datetime
 
 # Create your models here.
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+class WeatherData(models.Model):
+    temperature = models.IntegerField()
+    apparentTemp = models.IntegerField()
+    humidity = models.FloatField()
+    precipitation = models.FloatField()
+    windSpeed = models.FloatField()
+    cloudiness = models.CharField(max_length=30)
+    time = models.DateTimeField(auto_now_add=True)
+    sunrise = models.DateTimeField()
+    sunsetTime = models.DateTimeField()
 
-    def __str__(self):
-        return self.question_text
-
-    def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
-
-
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.choice_text
+class UserDataPoint(models.Model):
+    feeling = models.IntegerField() #1-5
+    recordedWeather = models.OneToOneField(WeatherData, on_delete=models.CASCADE)

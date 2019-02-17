@@ -21,22 +21,23 @@ def index(request):
     context = {
         'current_temperature': currentWeather['current_temperature'],
         'current_wind_speed': currentWeather['current_windSpeed'],
-        'user_voted': False,
+        'user_voted': True if 'user_voted' in request.session else False,
+        'selected_choice': None if 'selected_choice' not in request.session else request.session['selected_choice']
     }
 
     return render(request, 'weather/index.html', context)
 
-def after_vote_redirect(request):
-    currentWeather = apiCaller.get_current_dict()
+# def after_vote_redirect(request):
+#     currentWeather = apiCaller.get_current_dict()
 
-    context = {
-        'current_temperature': currentWeather['current_temperature'],
-        'current_wind_speed': currentWeather['current_windSpeed'],
-        'user_voted': True,
+#     context = {
+#         'current_temperature': currentWeather['current_temperature'],
+#         'current_wind_speed': currentWeather['current_windSpeed'],
+#         'user_voted': True,
 
-    }
+#     }
 
-    return render(request, 'weather/index.html', context)
+#     return render(request, 'weather/index.html', context)
 
 def comfortAsk(request):
     return render(request, 'weather/comfortAsk.html')
@@ -47,6 +48,8 @@ def submission(request):
         request_copy.pop("csrfmiddlewaretoken")
         selected_choice = request_copy.popitem()[0]
         selected_choice = selected_choice[0]
+        request.session['selected_choice'] = selected_choice
+        request.session['user_voted'] = True
     except (KeyError):
         # Redisplay the ask form.
         return render(request, 'weather/comfortAsk.html', {
@@ -70,7 +73,7 @@ def submission(request):
     # dataPoint.recordedWeather = currentWeatherData
     # dataPoint.save()
 
-    return HttpResponseRedirect(reverse('weather:redirect'))
+    return HttpResponseRedirect(reverse('weather:index'))
 
 
 def blurbs(request):

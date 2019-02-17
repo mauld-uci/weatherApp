@@ -42,8 +42,8 @@
             <div id="disclaimer"><a href="comfortAsk/"> Were we wrong?<br>Let us know!</a></span></div>
           {% else%}
             <span>You said today was</span>
-            <img src="{% static "weather/svgGraphics/JustRightlogo.svg" %}" alt="My image">
-            <span>Just right.<br>
+            <img src="{% static weather_pic %}" alt="My image">
+            <span>{{weather_mood}}<br>
           {% endif %}
         </div>
       </div>

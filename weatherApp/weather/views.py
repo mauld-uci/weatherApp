@@ -6,14 +6,29 @@ from . import apiCaller
 
 from django.shortcuts import get_object_or_404, render
 
-# Create your views here.
-
 from django.http import HttpResponse, HttpResponseRedirect
 from django.http import Http404
 from django.urls import reverse
 
 from .models import UserDataPoint, WeatherData
 
+weather_moods = {
+    "-1": None,
+    "0": "very cold",
+    "1": "a little chilly",
+    "2": "just how you like it",
+    "3": "a bit warm ",
+    "4": "very hot"
+}
+
+weather_pics = {
+    "-1": None,
+    "0": "weather/svgGraphics/FreezinglogowithShadow",
+    "1": "weather/svgGraphics/ChillylogowithShadow.svg",
+    "2": "weather/svgGraphics/JustRightlogo.svg",
+    "3": "weather/svgGraphics/ToastylogowithShadow.svg",
+    "4": "weather/svgGraphics/OnFirelogowithShadow.svg"
+}
 
 def index(request):
     currentWeather = apiCaller.get_current_dict()
@@ -22,8 +37,10 @@ def index(request):
         'current_temperature': currentWeather['current_temperature'],
         'current_wind_speed': currentWeather['current_windSpeed'],
         'user_voted': True if 'user_voted' in request.session else False,
-        'selected_choice': None if 'selected_choice' not in request.session else request.session['selected_choice']
+        'selected_choice': "-1" if 'selected_choice' not in request.session else request.session['selected_choice']
     }
+    context['weather_mood'] = weather_moods[context['selected_choice']]
+    context['weather_pic'] = weather_pics[context['selected_choice']]
 
     return render(request, 'weather/index.html', context)
 

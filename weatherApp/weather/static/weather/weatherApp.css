@@ -118,6 +118,22 @@ body{
   font-size: 30px;
 }
 
+#largeBox img {
+  width: 30%;
+  height: auto;
+  padding:5%;
+}
+
+#largeBox span {
+  padding: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+p {
+  padding: 5%;
+}
+
 /* Row Two */
 
 #twelvehourForecast {

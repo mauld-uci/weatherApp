@@ -10,12 +10,12 @@ import datetime
 
 class WeatherData(models.Model):
     temperature = models.IntegerField()
-    apparentTemp = models.IntegerField()
+    apparent_temp = models.IntegerField()
     humidity = models.FloatField()
     precip_prob = models.FloatField()
     windSpeed = models.FloatField()
     cloudiness = models.CharField(max_length=30)
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField()
     sunrise = models.DateTimeField()
     sunsetTime = models.DateTimeField()
 

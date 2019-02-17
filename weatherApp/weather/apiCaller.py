@@ -38,7 +38,7 @@ def pull_current_data(json_object):
     new_dict['current_temperature'] = json_object['currently']['temperature']
     new_dict['current_precipProbability'] = json_object['currently']['precipProbability']
     new_dict['current_summary'] = json_object['currently']['summary']
-    new_dict['CURRENT_TIME'] = datetime.now()
+    new_dict['current_time'] = datetime.now()
     return new_dict
 
 def pull_daily_data(json_object):
@@ -54,7 +54,7 @@ def pull_daily_data(json_object):
     daily_dict['daily_sunriseTime'] = json_object['daily']['data'][0]['sunriseTime']
     daily_dict['daily_sunsetTime'] = json_object['daily']['data'][0]['sunsetTime']
     daily_dict['daily_summary'] = json_object['daily']['data'][0]['summary']
-    daily_dict['CURRENT_TIME'] = datetime.now()
+    daily_dict['current_time'] = datetime.now()
     return daily_dict
 
 

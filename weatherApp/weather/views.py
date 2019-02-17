@@ -23,11 +23,11 @@ weather_moods = {
 
 weather_pics = {
     "-1": None,
-    "0": "weather/svgGraphics/FreezinglogowithShadow",
-    "1": "weather/svgGraphics/ChillylogowithShadow.svg",
+    "0": "weather/svgGraphics/Freezing.svg",
+    "1": "weather/svgGraphics/Chilly.svg",
     "2": "weather/svgGraphics/JustRightlogo.svg",
-    "3": "weather/svgGraphics/ToastylogowithShadow.svg",
-    "4": "weather/svgGraphics/OnFirelogowithShadow.svg"
+    "3": "weather/svgGraphics/Toastylogo.svg",
+    "4": "weather/svgGraphics/OnFire.svg"
 }
 
 def index(request):
@@ -73,22 +73,24 @@ def submission(request):
             'error_message': str(request.POST),
         })
 
-    # currentWeather = apiCaller.get_current_dict()
-    # currentWeatherData = WeatherData()
-    # dailyWeather = apiCaller.get_daily_dict()
-    # currentWeatherData.temperature = currentWeather['current_Temperature']
-    # currentWeatherData.apparentTemp = currentWeather['current_apparentTemperature']
-    # currentWeatherData.humidity = currentWeather['current_humidity']
-    # currentWeatherData.precip_prob = currentWeather['current_precipProbability']
-    # currentWeatherData.windSpeed = currentWeather['current_windSpeed']
-    # currentWeatherData.cloudiness = currentWeather['current_summary']
-    # currentWeatherData.time = currentWeather['CURRENT_TIME']
-    # currentWeatherData.sunrise = dailyWeather['daily_sunriseTime']
-    # currentWeatherData.sunsetTime = dailyWeather['daily_sunsetTime']
-    # dataPoint = UserDataPoint()
-    # dataPoint.feeling = [SOME INPUT]
-    # dataPoint.recordedWeather = currentWeatherData
-    # dataPoint.save()
+    currentWeather = apiCaller.get_current_dict()
+    dailyWeather = apiCaller.get_daily_dict()
+    currentWeatherData = WeatherData(
+        temperature = currentWeather['current_temperature'],
+        apparent_temp = currentWeather['current_apparentTemperature'],
+        humidity = currentWeather['current_humidity'],
+        precip_prob = currentWeather['current_precipProbability'],
+        windSpeed = currentWeather['current_windSpeed'],
+        cloudiness = currentWeather['current_summary'],
+        time = currentWeather['current_time'],
+        # sunrise = dailyWeather['daily_sunriseTime'],
+        # sunsetTime = dailyWeather['daily_sunsetTime']
+    )
+    currentWeatherData.save()
+    dataPoint = UserDataPoint()
+    dataPoint.feeling = int(request.session['selected_choice'])
+    dataPoint.recordedWeather = currentWeatherData
+    dataPoint.save()
 
     return HttpResponseRedirect(reverse('weather:index'))
 

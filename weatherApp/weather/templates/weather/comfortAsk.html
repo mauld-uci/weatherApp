@@ -16,14 +16,10 @@
   <div id="selection" class="">
     <div class="something d-flex flex-row justify-content-center">
       <div class="heightAdjuster">
-<<<<<<< HEAD
+      <div id="question"><p>How do you feel today?</p><div id="assurance"><p>(Please select one.)</p></div></div>
       <form class="d-flex flex-row" action="{% url 'weather:submission' %}" method="post">
         {% csrf_token %}
-=======
-      <div id="question"><p>How do you feel today?</p><div id="assurance"><p>(Please select one.)</p></div></div>
-      <form class="d-flex flex-row">
         <div id="FreezingButton">
->>>>>>> 1d4301051a132a892be0aa28710ac04811b88a63
         <input type="image" src="{% static "weather/svgGraphics/FreezinglogowithShadow.svg" %}" alt="My image" name="choice" value="0">
         <p> Freezing </p>
         </div>

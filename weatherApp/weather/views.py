@@ -35,9 +35,20 @@ def index(request):
     currentWeather = apiCaller.get_current_dict()
 
     hourly_forecast = twelveHourForecast.run()
-    unzip_hourly = zip(*hourly_forecast)
+    unzip_hourly = list(zip(*hourly_forecast))
     hours = unzip_hourly[0]
-    houlry_temps = unzip_hourly[1]
+    hours_list = []
+    for each in hours:
+        newTime = ""
+        if int(each) > 12:
+            newTime = str(each-12) + 'pm'
+        elif int(each) == 12:
+            newTime = str(each) + 'pm'
+        else:
+            newTime = str(each) + 'am'
+        hours_list.append(newTime)
+    hours = tuple(hours_list)
+    hourly_temps = unzip_hourly[1]
 
     context = {
         'current_temperature': currentWeather['current_temperature'],

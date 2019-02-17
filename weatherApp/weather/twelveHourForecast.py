@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 import urllib.parse
 import urllib.request
-import Coordinate_Request
+from . import Coordinate_Request
 from collections import namedtuple
 HourWeather = namedtuple('Hour', ['time', 'human_time', 'timezone', 'summary', 'precipProbability', 'temperature', 'apparentTemperature',
                                   'humidity', 'windSpeed'])

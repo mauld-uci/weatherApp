@@ -128,4 +128,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Sessions
 
-SESSION_COOKIE_AGE = 14400
+SESSION_COOKIE_AGE = 1800

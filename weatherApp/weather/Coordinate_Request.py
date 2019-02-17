@@ -31,8 +31,8 @@ def pull_current_data(json_object):
     longitude = json_object['longitude']
     city = json_object['city']
     region_code = json_object['region_code']
-    zip_code = json_object['zip_code']
-    location_string = str(city) + ", " + str(region_code) + " " + str(zip_code)
+    zip_code1 = json_object['zip']
+    location_string = str(city) + ", " + str(region_code) + " " + str(zip_code1)
     return (latitude, longitude)
 
 

@@ -4,7 +4,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime
 from . import Coordinate_Request
-
+import time
 
 
 API_KEY = '0b314396b7522fbd939166f3ed3e53a4'
@@ -51,8 +51,12 @@ def pull_daily_data(json_object):
     daily_dict['daily_TemperatureHigh'] = json_object['daily']['data'][0]['temperatureHigh']
     daily_dict['daily_precipType'] = json_object['daily']['data'][0]['precipType']
     daily_dict['daily_precipProbability'] = json_object['daily']['data'][0]['precipProbability']
-    daily_dict['daily_sunriseTime'] = json_object['daily']['data'][0]['sunriseTime']
-    daily_dict['daily_sunsetTime'] = json_object['daily']['data'][0]['sunsetTime']
+    sunrise = json_object['daily']['data'][0]['sunriseTime']
+    sunrise1 = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(sunrise))
+    sunset = json_object['daily']['data'][0]['sunsetTime']
+    sunset1 = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(sunset))
+    daily_dict['daily_sunriseTime'] = sunrise1
+    daily_dict['daily_sunsetTime'] = sunset1
     daily_dict['daily_summary'] = json_object['daily']['data'][0]['summary']
     daily_dict['current_time'] = datetime.now()
     return daily_dict

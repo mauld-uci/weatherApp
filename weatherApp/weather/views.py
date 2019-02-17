@@ -37,7 +37,8 @@ def index(request):
         'current_temperature': currentWeather['current_temperature'],
         'current_wind_speed': currentWeather['current_windSpeed'],
         'user_voted': True if 'user_voted' in request.session else False,
-        'selected_choice': "-1" if 'selected_choice' not in request.session else request.session['selected_choice']
+        'selected_choice': "-1" if 'selected_choice' not in request.session else request.session['selected_choice'],
+        'user_data_count': UserDataPoint.objects.count()
     }
     context['weather_mood'] = weather_moods[context['selected_choice']]
     context['weather_pic'] = weather_pics[context['selected_choice']]
@@ -83,9 +84,10 @@ def submission(request):
         windSpeed = currentWeather['current_windSpeed'],
         cloudiness = currentWeather['current_summary'],
         time = currentWeather['current_time'],
-        # sunrise = dailyWeather['daily_sunriseTime'],
-        # sunsetTime = dailyWeather['daily_sunsetTime']
+        sunrise = dailyWeather['daily_sunriseTime'],
+        sunsetTime = dailyWeather['daily_sunsetTime']
     )
+
     currentWeatherData.save()
     dataPoint = UserDataPoint()
     dataPoint.feeling = int(request.session['selected_choice'])

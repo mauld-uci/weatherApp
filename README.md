@@ -13,6 +13,8 @@ Checking the daily forecast is a crucial part of many people's morning routines.
 #### Comfort Ask  
 Atmosphere is a personalized application, and so needs a personal touch. When the user is outside, Atmosphere will ask how they are feeling. Atmosphere remembers the input, and pairs it with various climate factors, including temperature, wind speed, humidity, and cloud coverage. By collecting this data and analyzing trends, Atmosphere learns what kinds of climates the user prefers, and informs them if the coming day will be warm, cold, or exactly how they like.
 
+![Comfort Scale](/images/options.png)  
+
 There are two types of comfort asks: Check-Ins and Corrections. Check-Ins periodically occur to ask the user how they are feeling at a given moment. These will occur at launch without a user request. Corrections occur when a user disagrees with Atmosphere's comfort assessment.
 
 #### What to Wear  

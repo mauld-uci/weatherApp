@@ -13,11 +13,8 @@ from django.http import Http404
 from django.urls import reverse
 
 from .models import UserDataPoint, WeatherData
-<<<<<<< HEAD
-=======
 
 
->>>>>>> af835852625a274c99a740a2e64347f9997b15ed
 
 
 def index(request):
@@ -29,12 +26,8 @@ def index(request):
     # }
     # #return HttpResponse(template.render(context, request))
     # return render(request, 'weather/index.html', context) #shortcut for the commented out code
-    #print(mimetypes.guess_type(static('images/right-arrow.svg'))) 
-<<<<<<< HEAD
-    return render(request, 'weather/index.html')
-=======
+    #print(mimetypes.guess_type(static('images/right-arrow.svg')))
     return render(request, 'weather/index.html', currentWeather)
->>>>>>> af835852625a274c99a740a2e64347f9997b15ed
 
 # def vote(request, question_id):
     # question = get_object_or_404(Question, pk=question_id)

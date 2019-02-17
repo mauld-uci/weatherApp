@@ -33,7 +33,7 @@ def get_result(url:str):
             response.close()
 
 def generate_namedtuple_perHour(json_object):
-    hour_tuple = HourWeather(time = json_object['currently']['time'],
+    '''hour_tuple = HourWeather(time = json_object['currently']['time'],
                              human_time = str(datetime.now()),
                              timezone= json_object['timezone'],
                              summary= json_object['currently']['summary'],
@@ -41,7 +41,12 @@ def generate_namedtuple_perHour(json_object):
                              temperature= json_object['currently']['temperature'],
                              apparentTemperature= json_object['currently']['apparentTemperature'],
                              humidity= json_object['currently']['humidity'],
-                             windSpeed= json_object['currently']['windSpeed'])
+                             windSpeed= json_object['currently']['windSpeed'])'''
+    time0 = json_object['currently']['time']
+    time1 = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time0))
+    time2 = time1.split()[0:2]
+    temperature = json_object['currently']['temperature']
+    hour_tuple = (time2, temperature)
     return hour_tuple
 
 def pull_hour_data(lat, lon, time):

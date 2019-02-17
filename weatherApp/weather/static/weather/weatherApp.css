@@ -115,17 +115,19 @@ body{
   border-radius: 40px;
   color: white;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 #largeBox img {
-  width: 30%;
+  width: 20%;
   height: auto;
-  padding:5%;
+  padding:2.5%;
 }
 
 #largeBox span {
-  padding: 5%;
+  padding: %;
+  font-size: 40px;
+  font-weight: bold;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -144,7 +146,7 @@ p {
   background: #8C99BD;
   border-radius: 40px;
   color: white;
-  margin-top: 3%;
+  margin-top: 0.75%;
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -240,14 +242,6 @@ div.scrollmenu div {
 
 #question {
   font-size: 60px;
-  color: #FFFFFF;
-  text-align: center;
-  font-weight:bold;
-  margin-bottom: 20px;
-}
-
-#question #assurance {
-  font-size: 30px;
   color: #FFFFFF;
   text-align: center;
   font-weight:bold;

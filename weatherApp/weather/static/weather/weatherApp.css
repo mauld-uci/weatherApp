@@ -1,6 +1,7 @@
 html, body {
   margin: 0px;
   padding: 0px;
+  width: 100%;
 }
 
 body{
@@ -12,13 +13,6 @@ body{
   padding: 0px;
 }
 
-#rowOne {
-  height: 80%;
-}
-
-#rowTwo {
-  height: 80%;
-}
 
 /* Row 1 Column 1 */
 .col-sm-3 {
@@ -59,6 +53,7 @@ body{
 #statisticalValue span {
   padding: 50px;
   font-size: 30px;
+  text-align: center;
 }
 #statisticalValue img {
   display: block;
@@ -134,4 +129,32 @@ twelvehourForecast.scrollmenu {
   background-color: #333;
   overflow: auto;
   white-space: nowrap;
+}
+
+/* Selection Menu */
+
+#selection {
+  padding: 5%;
+}
+
+.something {
+  width: 100%
+}
+
+.heightAdjuster {
+  margin-top: 25%;
+  margin-bottom: 25%;
+}
+
+form {
+  margin-left: 0;
+  margin-right: auto;
+  display: block;
+  height: 15%;
+  width: 15%;
+}
+
+input {
+  width: 100px;
+  height: 100px;
 }

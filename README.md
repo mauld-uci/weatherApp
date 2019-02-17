@@ -20,6 +20,8 @@ There are two types of comfort asks: Check-Ins and Corrections. Check-Ins period
 #### What to Wear  
 Atmosphere intelligently suggests outfit options based on its comfort assessment. At a glance, a user can determine whether they should wear shorts or a parka. On sunny days, Atmosphere will remind the user to bring sunglasses and sunscreen. On rainy days, Atmosphere will suggest a raincoat or umbrella. This at-a-glance feature simplifies the morning routine.
 
+![Clothing Rec](/images/clothing.png)  
+
 ## How it Works  
 
 #### Learning  

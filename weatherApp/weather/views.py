@@ -53,18 +53,7 @@ def index(request):
 
     hourly_forecast = twelveHourForecast.run()
     unzip_hourly = list(zip(*hourly_forecast))
-    hours = unzip_hourly[0]
-    hours_list = []
-    for each in hours:
-        newTime = ""
-        if int(each) > 12:
-            newTime = str(each-12) + 'pm'
-        elif int(each) == 12:
-            newTime = str(each) + 'pm'
-        else:
-            newTime = str(each) + 'am'
-        hours_list.append(newTime)
-    hours = tuple(hours_list)
+    hours = change_from_military_time(unzip_hourly[0])
     hourly_temps = unzip_hourly[1]
 
     feeling_prediction = str(stats_analysis.find_closest_feeling(current_temp))
@@ -195,39 +184,19 @@ def generate_blurb(currentWeather: dict, dailyWeather: dict, feel: str):
 
     return blurb
 
-def data_type(request):
-    currentWeather = apiCaller.get_current_dict()
-    currentWeatherData = WeatherData()
-    dailyWeather = apiCaller.get_daily_dict()
-    currentWeatherData.temperature = currentWeather['current_Temperature']
-    currentWeatherData.apparentTemp = currentWeather['current_apparentTemperature']
-    currentWeatherData.humidity = currentWeather['current_humidity']
-    currentWeatherData.precip_prob = currentWeather['current_precipProbability']
-    currentWeatherData.windSpeed = currentWeather['current_windSpeed']
-    currentWeatherData.cloudiness = currentWeather['current_summary']
-    currentWeatherData.time = currentWeather['CURRENT_TIME']
-    currentWeatherData.sunrise = dailyWeather['daily_sunriseTime']
-    currentWeatherData.sunsetTime = dailyWeather['daily_sunsetTime']
-    dataPoint = UserDataPoint()
-    # dataPoint.feeling = [SOME INPUT]
-    # dataPoint.recordedWeather = currentWeatherData
-    # dataPoint.save()
-    return render(request, 'weather/comfortAsk.html')
+def change_from_military_time(hours: tuple):
+    hours_list = []
+    for each in hours:
+        newTime = ""
+        if int(each) > 12:
+            newTime = str(each-12) + 'pm'
+        elif int(each) == 12:
+            newTime = str(each) + 'pm'
+        elif int(each) == 0:
+            newTime = '12am'
+        else:
+            newTime = str(each) + 'am'
+        hours_list.append(newTime)
 
-# def vote(request, question_id):
-    # question = get_object_or_404(Question, pk=question_id)
-    # try:
-    #     selected_choice = question.choice_set.get(pk=request.POST['choice'])
-    # except (KeyError, Choice.DoesNotExist):
-    #     # Redisplay the question voting form.
-    #     return render(request, 'weather/detail.html', {
-    #         'question': question,
-    #         'error_message': "You didn't select a choice.",
-    #     })
-    # else:
-    #     selected_choice.votes += 1
-    #     selected_choice.save()
-    #     # Always return an HttpResponseRedirect after successfully dealing
-    #     # with POST data. This prevents data from being posted twice if a
-    #     # user hits the Back button.
-    #     return HttpResponseRedirect(reverse('weather:results', args=(question.id,)))
+    return hours_list
+

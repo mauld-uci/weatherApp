@@ -29,7 +29,7 @@ weather_pics = {
     "1": "weather/svgGraphics/Chilly.svg",
     "2": "weather/svgGraphics/JustRightlogo.svg",
     "3": "weather/svgGraphics/Toastylogo.svg",
-    "4": "weather/svgGraphics/OnFire.svg"
+    "4": "weather/svgGraphics/OnFirelogo.svg"
 }
 
 appropriate_clothing = {
